@@ -1,0 +1,6 @@
+NOLOG
+TITLE ------ Changing Reverse Arrow color...
+src\magick.exe convert "src\sprites\reversearrow@2x.png" -modulate %ReverseArrowHue% "src\caches\reversearrow@2x.png"
+
+TITLE ------ Applying Reverse Arrow changes...
+src\magick.exe convert "src\caches\reversearrow@2x.png" -strip -resize 50%% -filter Box "src\caches\reversearrow.png"

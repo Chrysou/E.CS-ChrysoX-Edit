@@ -1,0 +1,3 @@
+NOLOG
+TITLE ------ Applying skin configuration: Adjust mania playfield position...
+set ack=:_ReplaceValue_FullReferenceBased && call "src\engine\BatchINIParser" "%skinConfigFile%" src\engine\batch\ReferenceLists\SetManiaPos.ref DIRECT

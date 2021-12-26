@@ -1,0 +1,10 @@
+NOLOG
+TITLE ------ Changing cursor color...
+src\magick.exe convert "src\sprites\cursor\cursor@2x.png" -modulate %hueCursor% "src\caches\cursor@2x.png"
+src\magick.exe convert "src\sprites\cursor\cursortrail@2x.png" -modulate %hueCursor% "src\caches\cursortrail@2x.png"
+src\magick.exe convert "src\sprites\cursor\cursor-smoke@2x.png" -modulate %hueCursor% "src\caches\cursor-smoke@2x.png"
+
+TITLE ------ Applying cursor changes...
+src\magick.exe convert "src\caches\cursor@2x.png" -strip -resize 50%% -filter Box "src\caches\cursor.png"
+src\magick.exe convert "src\caches\cursortrail@2x.png" -strip -resize 50%% -filter Box "src\caches\cursortrail.png"
+src\magick.exe convert "src\caches\cursor-smoke@2x.png" -strip -resize 50%% -filter Box "src\caches\cursor-smoke.png"

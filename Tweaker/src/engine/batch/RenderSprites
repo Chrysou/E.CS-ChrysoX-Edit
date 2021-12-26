@@ -1,0 +1,101 @@
+NOLOG
+TITLE ------ Rendering selection-mode sprite...
+src\magick.exe composite -compose src-over -geometry +%sprite_offset1[0]%+%sprite_offset1[1]% "src\sprites\sprite-osuCookie-med@2x.png" "src\sprites\sprite-selection-mode@2x.png" -strip -depth 8 "src\caches\selection-mode-pass1@2x.png"
+src\magick.exe composite -compose src-over -geometry +%sprite_offset5[0]%+%sprite_offset5[1]% "src\sprites\sprite-mode-small-warning@2x.png" "src\caches\selection-mode-pass1@2x.png" -strip -depth 8 "src\caches\selection-mode-pass2@2x.png"
+src\magick.exe convert "src\caches\selection-mode-pass2@2x.png" -alpha extract -compose multiply "src\sprites\sprite-selection-tab-mask@2x.png" -geometry +%sprite_offset7[0]%+%sprite_offset7[1]% -strip -depth 8 -composite "src\caches\selection-mode-pass2-mask@2x.png"
+src\magick.exe convert "src\caches\selection-mode-pass2@2x.png" "src\caches\selection-mode-pass2-mask@2x.png" -alpha off -compose copy-opacity -composite "src\caches\selection-mode-pass3@2x.png"
+src\magick.exe composite -compose src-over -geometry +%sprite_offset3[0]%+%sprite_offset3[1]% "src\sprites\sprite-mode-small-overlay@2x.png" "src\caches\selection-mode-pass3@2x.png" -strip -depth 8 "src\caches\selection-mode-pass4@2x.png"
+src\magick.exe convert "src\caches\selection-mode-pass4@2x.png" -crop %cropSprite[4]% -strip "src\caches\selection-mode@2x.png"
+src\magick.exe convert "src\caches\selection-mode@2x.png" -strip -resize 50%% -filter Box "src\caches\selection-mode.png"
+del "src\caches\selection-mode-pass1@2x.png"
+del "src\caches\selection-mode-pass2@2x.png"
+del "src\caches\selection-mode-pass2-mask@2x.png"
+del "src\caches\selection-mode-pass3@2x.png"
+del "src\caches\selection-mode-pass4@2x.png"
+
+TITLE ------ Rendering play-skip sprite...
+src\magick.exe composite -compose src-over -geometry +%sprite_offset6[0]%+%sprite_offset6[1]% "src\sprites\sprite-play-skip@2x.png" "src\sprites\sprite-play-skip-background@2x.png" -strip -depth 8 "src\caches\play-skip-pass1@2x.png"
+src\magick.exe convert "src\caches\play-skip-pass1@2x.png" -crop %cropSprite[3]% -strip "src\caches\play-skip@2x.png"
+src\magick.exe convert "src\caches\play-skip@2x.png" -strip -resize 50%% -filter Box "src\caches\play-skip.png"
+del "src\caches\play-skip-pass1@2x.png"
+
+TITLE ------ Rendering mode-osu-small sprite...
+src\magick.exe composite -compose src-over -geometry +%sprite_offset2[0]%+%sprite_offset2[1]% "src\sprites\sprite-mode-osu-small-overlay@2x.png" "src\sprites\sprite-mode-small-background@2x.png" -strip -depth 8 "src\caches\mode-osu-small-pass1@2x.png"
+src\magick.exe convert "src\caches\mode-osu-small-pass1@2x.png" -crop %cropSprite[2]% -strip "src\caches\mode-osu-small@2x.png"
+src\magick.exe convert "src\caches\mode-osu-small@2x.png" -strip -resize 50%% -filter Box "src\caches\mode-osu-small.png"
+
+TITLE ------ Rendering mode-taiko-small sprite...
+src\magick.exe composite -compose src-over -geometry +%sprite_offset2[0]%+%sprite_offset2[1]% "src\sprites\sprite-mode-taiko-small-overlay@2x.png" "src\sprites\sprite-mode-small-background@2x.png" -strip -depth 8 "src\caches\mode-taiko-small-pass1@2x.png"
+src\magick.exe convert "src\caches\mode-taiko-small-pass1@2x.png" -crop %cropSprite[2]% -strip "src\caches\mode-taiko-small@2x.png"
+src\magick.exe convert "src\caches\mode-taiko-small@2x.png" -strip -resize 50%% -filter Box "src\caches\mode-taiko-small.png"
+
+TITLE ------ Rendering mode-mania-small sprite...
+src\magick.exe composite -compose src-over -geometry +%sprite_offset2[0]%+%sprite_offset2[1]% "src\sprites\sprite-mode-mania-small-overlay@2x.png" "src\sprites\sprite-mode-small-background@2x.png" -strip -depth 8 "src\caches\mode-mania-small-pass1@2x.png"
+src\magick.exe convert "src\caches\mode-mania-small-pass1@2x.png" -crop %cropSprite[2]% -strip "src\caches\mode-mania-small@2x.png"
+src\magick.exe convert "src\caches\mode-mania-small@2x.png" -strip -resize 50%% -filter Box "src\caches\mode-mania-small.png"
+
+TITLE ------ Rendering mode-fruits-small sprite...
+src\magick.exe composite -compose src-over -geometry +%sprite_offset2[0]%+%sprite_offset2[1]% "src\sprites\sprite-mode-fruits-small-overlay@2x.png" "src\sprites\sprite-mode-small-background@2x.png" -strip -depth 8 "src\caches\mode-fruits-small-pass1@2x.png"
+src\magick.exe convert "src\caches\mode-fruits-small-pass1@2x.png" -crop %cropSprite[2]% -strip "src\caches\mode-fruits-small@2x.png"
+src\magick.exe convert "src\caches\mode-fruits-small@2x.png" -strip -resize 50%% -filter Box "src\caches\mode-fruits-small.png"
+
+del "src\caches\mode-osu-small-pass1@2x.png"
+del "src\caches\mode-taiko-small-pass1@2x.png"
+del "src\caches\mode-mania-small-pass1@2x.png"
+del "src\caches\mode-fruits-small-pass1@2x.png"
+
+TITLE ------ Rendering fail-background sprite...
+src\magick.exe convert "src\sprites\sprite-fail-background@2x.png" -crop %cropSprite[0]% -strip "src\caches\fail-background@2x.png"
+src\magick.exe convert "src\caches\fail-background@2x.png" -strip -resize 50%% -filter Box "src\caches\fail-background.png"
+
+TITLE ------ Rendering pause-overlay sprite...
+src\magick.exe convert "src\sprites\sprite-pause-overlay@2x.png" -crop %cropSprite[0]% -strip "src\caches\pause-overlay@2x.png"
+src\magick.exe convert "src\caches\pause-overlay@2x.png" -strip -resize 50%% -filter Box "src\caches\pause-overlay.png"
+
+TITLE ------ Rendering ranking-panel sprite...
+src\magick.exe composite -compose src-over -geometry -%posRanking_Panel4_x%+%posRanking_Panel4_y% "src\sprites\ranking-panel\ranking-panel-ratebg@2x.png" "src\sprites\sprite-ranking-panel@2x.png" -strip -depth 8 "src\caches\compose_out.png"
+move "src\caches\compose_out.png" "src\caches\compose.png">nul
+src\magick.exe composite -compose src-over -geometry +%posRanking_Panel1_x%+%posRanking_Panel1_y% "src\sprites\ranking-panel\ranking-panel-rate@2x.png" "src\caches\compose.png" -strip -depth 8 "src\caches\compose_out.png"
+move "src\caches\compose_out.png" "src\caches\compose.png">nul
+src\magick.exe composite -compose src-over -geometry +%posRanking_Panel2_x%+%posRanking_Panel2_y% "src\sprites\ranking-panel\ranking-panel-rankdetail@2x.png" "src\caches\compose.png" -strip -depth 8 "src\caches\compose_out.png"
+move "src\caches\compose_out.png" "src\caches\compose.png">nul
+src\magick.exe composite -compose src-over -geometry +%posRanking_Panel3_x%+%posRanking_Panel3_y% "src\sprites\ranking-panel\ranking-panel-profile@2x.png" "src\caches\compose.png" -strip -depth 8 "src\caches\compose_out.png"
+move "src\caches\compose_out.png" "src\caches\compose.png">nul
+src\magick.exe composite -compose src-over -geometry +%posRanking_Panel5_x%+%posRanking_Panel5_y% "src\sprites\ranking-panel\ranking-panel-replayoptions@2x.png" "src\caches\compose.png" -strip -depth 8 "src\caches\compose_out.png"
+move "src\caches\compose_out.png" "src\caches\compose.png">nul
+src\magick.exe composite -compose src-over -geometry +%posRanking_Panel6_x%+%posRanking_Panel6_y% "src\sprites\ranking-panel\ranking-panel-scrollsectionguide@2x.png" "src\caches\compose.png" -strip -depth 8 "src\caches\compose_out.png"
+move "src\caches\compose_out.png" "src\caches\compose.png">nul
+src\magick.exe composite -compose src-over -geometry +%posRanking_Panel7_x%+%posRanking_Panel7_y% "src\sprites\ranking-panel\ranking-panel-rankingheader@2x.png" "src\caches\compose.png" -strip -depth 8 "src\caches\compose_out.png"
+move "src\caches\compose_out.png" "src\caches\compose.png">nul
+src\magick.exe convert -alpha extract "src\caches\compose.png" -strip -depth 8 "src\caches\mask.png"
+src\magick.exe convert "src\caches\mask.png" -compose multiply "src\sprites\ranking-panel\mask-ranking-panel-rate@2x.png" -geometry +%posRanking_Panel1_x%+%posRanking_Panel1_y% -strip -depth 8 -composite "src\caches\mask_out.png"
+move src\caches\mask_out.png src\caches\mask.png>nul
+src\magick.exe convert "src\caches\mask.png" -compose multiply "src\sprites\ranking-panel\mask-ranking-panel-rankdetail@2x.png" -geometry +%posRanking_Panel2_x%+%posRanking_Panel2_y% -strip -depth 8 -composite "src\caches\mask_out.png"
+move src\caches\mask_out.png src\caches\mask.png>nul
+src\magick.exe convert "src\caches\mask.png" -compose multiply "src\sprites\ranking-panel\mask-ranking-panel-profile@2x.png" -geometry +%posRanking_Panel3_x%+%posRanking_Panel3_y% -strip -depth 8 -composite "src\caches\mask_out.png"
+move src\caches\mask_out.png src\caches\mask.png>nul
+src\magick.exe convert "src\caches\mask.png" -compose multiply "src\sprites\ranking-panel\mask-ranking-panel-replayoptions@2x.png" -geometry +%posRanking_Panel5_x%+%posRanking_Panel5_y% -strip -depth 8 -composite "src\caches\mask_out.png"
+move src\caches\mask_out.png src\caches\mask.png>nul
+src\magick.exe convert "src\caches\compose.png" "src\caches\mask.png" -alpha off -compose copy-opacity -composite "src\caches\temp-sprite-ranking-panel@2x.png"
+
+src\magick.exe convert "src\caches\temp-sprite-ranking-panel@2x.png" -crop %cropSprite[1]% -strip "src\caches\ranking-panel@2x.png"
+src\magick.exe convert "src\caches\ranking-panel@2x.png" -strip -resize 50%% -filter Box "src\caches\ranking-panel.png"
+del "src\caches\compose.png"
+del "src\caches\mask.png"
+del "src\caches\temp-sprite-ranking-panel@2x.png"
+
+TITLE ------ Rendering ready sprite...
+src\magick.exe convert "src\sprites\sprite-ready@2x.png" -crop %cropSprite[5]% -strip "src\caches\ready@2x.png"
+src\magick.exe convert "src\caches\ready@2x.png" -strip -resize 50%% -filter Box "src\caches\ready.png"
+
+TITLE ------ Rendering section-pass sprite...
+src\magick.exe convert "src\sprites\sprite-section-pass@2x.png" -crop %cropSprite[5]% -strip "src\caches\section-pass@2x.png"
+src\magick.exe convert "src\caches\section-pass@2x.png" -strip -resize 50%% -filter Box "src\caches\section-pass.png"
+
+TITLE ------ Rendering section-fail sprite...
+src\magick.exe convert "src\sprites\sprite-section-fail@2x.png" -crop %cropSprite[5]% -strip "src\caches\section-fail@2x.png"
+src\magick.exe convert "src\caches\section-fail@2x.png" -strip -resize 50%% -filter Box "src\caches\section-fail.png"
+
+TITLE ------ Rendering welcome_text sprite...
+src\magick.exe convert "src\sprites\welcome_text@2x.png" -crop %cropSprite[6]% -strip "src\caches\welcome_text@2x.png"
+src\magick.exe convert "src\caches\welcome_text@2x.png" -strip -resize 50%% -filter Box "src\caches\welcome_text.png"

@@ -1,0 +1,8 @@
+NOLOG
+TITLE ------ Copying hitcircle sprites to cache...
+copy src\sprites\sprite-hitcircle\%hitcircleModel%\hitcircle@2x.png src\caches>nul
+copy src\sprites\sprite-hitcircle\%hitcircleModel%\hitcircleoverlay@2x.png src\caches>nul
+
+TITLE ------ Processing hitcircle sprites...
+src\magick.exe convert "src\caches\hitcircle@2x.png" -strip -resize 50%% -filter Box "src\caches\hitcircle.png"
+src\magick.exe convert "src\caches\hitcircleoverlay@2x.png" -strip -resize 50%% -filter Box "src\caches\hitcircleoverlay.png"
